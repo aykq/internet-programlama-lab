@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sipariş Ekranı</title>
+  </head>
+  <style>
+    body {
+      background-color: gray;
+      font-family: sans-serif;
+    }
+    .container {
+      width: 350px;
+      height: 500px;
+      background-color: white;
+      margin: auto;
+      border-radius: 20px;
+    }
+
+    .baslik {
+      width: 350px;
+      background-color: black;
+      color: white;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    input,
+    select {
+      width: 90%;
+      border: none;
+      border-bottom: 1px black solid;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 50%;
+      padding: 10px;
+      margin-left: 50px;
+      border-radius: 10px;
+    }
+    #siparis-ozet-alani {
+      padding: 10px;
+      background-color: whitesmoke;
+      border-radius: 10px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="baslik">pizza siparisi</div>
+      <div class="siparis-alani">
+        <label>ad:</label><br />
+        <input type="text" placeholder="ad girin" id="ad" /><br />
+
+        <label>soyad:</label><br />
+        <input type="text" placeholder="soyad gir" id="soyad" /><br />
+
+        <p>pizza turu sec</p>
+        <select name="" id="servisler">
+          <option>pizza turu</option>
+          <option value="150">orta boy</option>
+          <option value="250">2li orta boy</option>
+          <option value="200">buyuk boy</option>
+          <option value="300">2li buyuk boy</option>
+          <option value="400">aile menu</option>
+        </select>
+
+        <p>adres gir</p>
+        <input type="text" name="" id="adres" placeholder="adres girin" />
+        <button id="buton" onclick="siparisVer()">siparis ver</button>
+      </div>
+      <div id="siparis-ozet-alani">ozet</div>
+    </div>
+    <script>
+      function siparisVer() {
+        var ad = document.getElementById("ad").value;
+        var soyad = document.getElementById("soyad").value;
+        var fiyat = document.getElementById("servisler").value;
+        var adres = document.getElementById("adres").value;
+
+        var siparisOzet =
+          "<p><strong>Ad:</strong> " +
+          ad +
+          "</p><p><strong>Soyad:</strong> " +
+          soyad +
+          "</p><p><strong>Fiyat:</strong> " +
+          fiyat +
+          "</p><p><strong>Adres:</strong> " +
+          adres +
+          "</p>";
+
+        document.getElementById("siparis-ozet-alani").innerHTML = siparisOzet;
+      }
+    </script>
+  </body>
+</html>
